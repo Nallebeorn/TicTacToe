@@ -1,0 +1,99 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: thistle;
+}
+
+h1 {
+    font-size: 96px;
+    text-align: center;
+    font-family: 'Fredoka One', sans-serif;
+    text-shadow: 2px 2px black;
+}
+
+h1 > .w1 {
+    color: #134594
+}
+
+h1 > .w2 {
+    color: #139476
+}
+
+h1 > .w3 {
+    color: #945413
+}
+
+#game-board-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: max(0.1vw, 0.5%);
+    aspect-ratio: 1;
+    background-color: black;
+    margin-bottom: 15px;
+}
+
+@media (orientation: portrait) {
+    #game-board-container {
+        max-height: 100%;
+        width: 100%;
+    }
+}
+
+@media (orientation: landscape) {
+    #game-board-container {
+        height: 100%;
+        max-width: 100%;
+    }
+}
+
+.cell {
+    background-color: thistle;
+    opacity: 100%;
+    text-align: center;
+    background-image: radial-gradient(farthest-side, rgba(19, 148, 118, 0.35), rgba(19, 148, 118, 0.35) 100%, transparent 100%);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0% 0%;
+    transition: background-size 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+    position: relative;
+}
+
+.cell:hover {
+    background-size: 142% 142%; /* sqrt(2) */
+    cursor: pointer;
+}
+
+.marker {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 0%;
+    transition: background-size 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 100%;
+    filter: drop-shadow(4px 4px 2px black);
+}
+
+.cross {
+    background-image: url("./Cross.png");
+}
+
+.circle {
+    background-image: url("./Circle.png");
+}
