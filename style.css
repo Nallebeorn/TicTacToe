@@ -6,35 +6,110 @@
 html,
 body {
     height: 100%;
+    background-color: #baa0bd;
+}
+
+#winner-message {
+    display: relative;
 }
 
 #container {
+    align-self: center;
     display: flex;
     flex-direction: column;
+    width: min(100vh, 100vw);
     height: 100%;
     align-items: center;
-    padding-left: 10px;
-    padding-right: 10px;
+    border-radius: 30px;
     background-color: thistle;
+    margin: auto;
 }
 
 h1 {
     font-size: 96px;
     text-align: center;
     font-family: 'Fredoka One', sans-serif;
-    text-shadow: 2px 2px black;
+    text-shadow: 3px 3px black;
 }
 
-h1 > .w1 {
+h1>.w1 {
     color: #134594
 }
 
-h1 > .w2 {
+h1>.w2 {
     color: #139476
 }
 
-h1 > .w3 {
+h1>.w3 {
     color: #945413
+}
+
+.stats-panel {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#winner-container {
+    transition: transform 0.2s cubic-bezier(0.5, 1, 0.89, 1);
+    transform: scale(0, 0);
+    padding-bottom: 5px;
+    flex: 0 0 auto;
+}
+
+#winner-text,
+.stats-text,
+.stats-text-label {
+    vertical-align: middle;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 32px;
+    color: #139476;
+    text-shadow: 2px 2px black;
+}
+
+.winner-icon {
+    vertical-align: middle;
+    height: 32px;
+    filter: drop-shadow(2px 2px 1px black);
+}
+
+#rematch-button {
+    vertical-align: middle;
+    height: 32px;
+    filter: drop-shadow(2px 2px 1px black);
+    background-color: #139476;
+    font-family: 'Fredoka One', sans-serif;
+    font-size: 20px;
+    margin: 4px;
+    line-height: 0;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.1s cubic-bezier(0.5, 1, 0.89, 1);
+}
+
+#rematch-button>span {
+    margin: 6px;
+}
+
+#rematch-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#rematch-button:active {
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.match-stats {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.stats-text {
+    padding-right: 10px;
 }
 
 #game-board-container {
@@ -44,10 +119,14 @@ h1 > .w3 {
     gap: max(0.1vw, 0.5%);
     aspect-ratio: 1;
     background-color: black;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
     margin-bottom: 15px;
+    flex-grow: 1;
 }
 
-@media (orientation: portrait) {
+/* @media (orientation: portrait) {
     #game-board-container {
         max-height: 100%;
         width: 100%;
@@ -59,7 +138,7 @@ h1 > .w3 {
         height: 100%;
         max-width: 100%;
     }
-}
+} */
 
 .cell {
     background-color: thistle;
@@ -74,7 +153,8 @@ h1 > .w3 {
 }
 
 .cell:hover {
-    background-size: 142% 142%; /* sqrt(2) */
+    background-size: 142% 142%;
+    /* sqrt(2) */
     cursor: pointer;
 }
 
@@ -91,9 +171,9 @@ h1 > .w3 {
 }
 
 .cross {
-    background-image: url("./Cross.png");
+    background-image: url("./cross.png");
 }
 
 .circle {
-    background-image: url("./Circle.png");
+    background-image: url("./circle.png");
 }

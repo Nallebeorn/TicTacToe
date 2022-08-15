@@ -15,6 +15,22 @@
 <body>
     <div id="container">
         <h1><span class="w1">Tic</span> <span class="w2">Tac</span> <span class="w3">Toe</span></h1>
+        <div class="stats-panel">
+            <div id="winner-container">
+                <span id="winner-text">Winner: </span>
+                <img id="winner-icon" class="winner-icon" src="./circle.png">
+                <button id="rematch-button"><span>Rematch</span></button>
+            </div>
+            <!-- <div class="flex-padding"></div> -->
+            <div class=" match-stats">
+                <img class="winner-icon" src="./circle.png">
+                <span id="circle-stats" class="stats-text">0</span>
+                <img class="winner-icon" src="./cross.png">
+                <span id="cross-stats" class="stats-text">0</span>
+                <span class="stats-text-label">Ties: </span>
+                <span id="tie-stats" class="stats-text">0</span>
+            </div>
+        </div>
         <div id="game-board-container">
             <div class="cell">
                 <div class="marker cross"></div>
